@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Svg Demo</title>
+  <style>
+    .svg-container {
+      font-size: 0;
+    }
+
+    .svg-item {
+      display: inline-block;
+      width: 100px;
+      margin: 15px;
+      padding: 15px;
+      font-size: 14px;
+      padding-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .svg-item span {
+      display: block;
+      text-align: center;
+    }
+
+    .svg-img {
+      height: 50px;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="svg-container" class="svg-container"></div>
+  <script>
+    let svgs = ['dashboard',
+  'example',
+  'eye-open',        
+  'eye',
+  'form',
+  'link',
+  'nested',
+  'password',
+  'table',
+  'tree',
+  'user' 
+    ]
+    let html = ''
+    svgs.forEach(item => {
+      let tag = `<div class="svg-item">
+                <span style="background-image: url(${item}.svg)" class="svg-img"></span>
+                <span>${item}</span>
+            </div>`
+      html += tag
+    })
+    console.log(html)
+    document.getElementById('svg-container').innerHTML = html
+
+  </script>
+</body>
+
+</html>
