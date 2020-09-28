@@ -9,6 +9,24 @@ export function login(data) {
   })
 }
 
+// 注册
+export function addUser(data) {
+  return request({
+    url: '/user/addUser',
+    method: 'post',
+    data
+  })
+}
+
+// 注册
+export function editUser(data) {
+  return request({
+    url: '/user/editUser',
+    method: 'post',
+    data
+  })
+}
+
 // 获取用户信息
 export function getInfo() {
   return request({
@@ -21,6 +39,14 @@ export function getInfo() {
 export function logout() {
   return request({
     url: '/user/logout',
+    method: 'get'
+  })
+}
+
+// 获取用户列表数据
+export function getUserList() {
+  return request({
+    url: '/user/userList',
     method: 'get'
   })
 }
