@@ -9,17 +9,18 @@ NProgress.configure({ showSpinner: false })
 
 const whiteList = ['/login'] // 免登录白名单
 
+// 路由守卫-前置
 router.beforeEach(async(to, from, next) => {
   NProgress.start() // 开启进度条
 
   document.title = getPageTitle(to.meta.title) // 设置页面标题
 
   const hasToken = getToken()
-  next()
+  // next()
   if (hasToken) { // 存在token
     if (to.path === '/login') { // 去登录页 登录存在 直接重定向首页
       next({ path: '/' })
-      next()
+      // next()
       NProgress.done()
     } else {
       const hasGetUserInfo = store.getters.name
@@ -47,6 +48,7 @@ router.beforeEach(async(to, from, next) => {
   }
 })
 
+// 路由守卫-后置
 router.afterEach(() => {
   // 关闭进度条
   NProgress.done()
