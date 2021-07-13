@@ -118,6 +118,7 @@ export default {
     searchFn() {
       this.listdata.loading = true
       getUserList().then(res => {
+        console.log('res', res)
         if (res.code === 200) {
           const dataList = res.data
           this.$set(this.listdata, 'showdata', dataList)

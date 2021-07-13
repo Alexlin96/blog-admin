@@ -65,6 +65,23 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 组件库
+  {
+    path: '/components',
+    component: Layout,
+    name: 'user',
+    meta: { title: '组件库', icon: 'lock' },
+    alwaysShow: true,
+    redirect: '/components/upload',
+    children: [
+      {
+        path: 'upload',
+        component: () => import('@/views/components/upload'),
+        name: 'upload',
+        meta: { title: '文件上传', icon: 'lock' }
+      }
+    ]
+  },
   // 404 找不到页面
   { path: '*', redirect: '/404', hidden: true }
 ]
