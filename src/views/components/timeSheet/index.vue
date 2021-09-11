@@ -1,0 +1,27 @@
+<template>
+  <div class="timeSheet g-container">
+    <timeSheet v-model="time" />
+  </div>
+</template>
+
+<script>
+import timeSheet from './time-sheet'
+export default {
+  name: 'Upload',
+  components: { timeSheet },
+  data() {
+    return {
+      time: '000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+    }
+  },
+  watch: {
+    time: {
+      handler(val) {
+        console.log('val', val)
+      }
+    }
+  },
+  methods: {
+  }
+}
+</script>
