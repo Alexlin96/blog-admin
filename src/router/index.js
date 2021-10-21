@@ -83,8 +83,14 @@ export const asyncRoutes = [
       {
         path: 'timeSheet',
         component: () => import('@/views/components/timeSheet'),
-        name: 'upload',
+        name: 'timeSheet',
         meta: { title: '时段选择器', icon: 'lock' }
+      },
+      {
+        path: 'editor',
+        component: () => import('@/views/components/editor'),
+        name: 'editor',
+        meta: { title: '代码编辑器', icon: 'lock' }
       }
     ]
   },

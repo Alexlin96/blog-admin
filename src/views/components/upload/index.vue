@@ -68,7 +68,7 @@ export default {
       const chunkList = []
       let cur = 0
       while (cur < file.size) {
-        // 使用slice方法切片
+        // 利用 Blob.prototype.slice 方法，和数组的 slice 方法相似，调用的 slice 方法可以返回原文件的某个切片
         chunkList.push({ file: file.slice(cur, cur + size) })
         cur += size
       }
