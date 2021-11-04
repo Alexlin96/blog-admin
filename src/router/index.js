@@ -91,6 +91,12 @@ export const asyncRoutes = [
         component: () => import('@/views/components/editor'),
         name: 'editor',
         meta: { title: '代码编辑器', icon: 'lock' }
+      },
+      {
+        path: 'datePicker',
+        component: () => import('@/views/components/datePicker'),
+        name: 'datePicker',
+        meta: { title: '日期选择器', icon: 'lock' }
       }
     ]
   },
