@@ -1,26 +1,31 @@
 <template>
   <div class="upload g-container">
-    <el-upload
-      action="#"
-      class="upload-demo"
-      drag
-      :show-file-list="false"
-      :limit="100"
-      :before-upload="beforeUpload"
-      :http-request="uploadFn"
-    >
-      <i class="el-icon-upload" />
-      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-    </el-upload>
-    <div style="width: 300px">
-      总进度：
-      <el-progress :percentage="totalPercent" />
-      切片进度：
-      <div v-for="item in chunkList" :key="item">
-        <span>{{ item.chunkName }}：</span>
-        <el-progress :percentage="item.percent" />
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>分片上传</span>
       </div>
-    </div>
+      <el-upload
+        action="#"
+        class="upload-demo"
+        drag
+        :show-file-list="false"
+        :limit="100"
+        :before-upload="beforeUpload"
+        :http-request="uploadFn"
+      >
+        <i class="el-icon-upload" />
+        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+      </el-upload>
+      <div style="width: 300px">
+        总进度：
+        <el-progress :percentage="totalPercent" />
+        切片进度：
+        <div v-for="item in chunkList" :key="item">
+          <span>{{ item.chunkName }}：</span>
+          <el-progress :percentage="item.percent" />
+        </div>
+      </div>
+    </el-card>
   </div>
 </template>
 

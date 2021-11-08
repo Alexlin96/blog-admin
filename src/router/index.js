@@ -97,6 +97,12 @@ export const asyncRoutes = [
         component: () => import('@/views/components/datePicker'),
         name: 'datePicker',
         meta: { title: '日期选择器', icon: 'lock' }
+      },
+      {
+        path: 'linkage',
+        component: () => import('@/views/components/linkage'),
+        name: 'linkage',
+        meta: { title: '层级联动选择器', icon: 'lock' }
       }
     ]
   },
