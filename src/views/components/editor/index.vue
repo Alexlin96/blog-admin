@@ -5,7 +5,7 @@
         <slot name="diff" />
       </div>
       <div class="config-item">
-        <span>主题</span>
+        <span @click="testDiffFn">主题</span>
         <el-select v-model="codeTheme" size="small" class="config-select" filterable @change="handleThemeChange">
           <el-option v-for="(item, index) in themeList" :key="index" :label="item" :value="item" />
         </el-select>
@@ -27,7 +27,7 @@
     <!-- 代码版本，差异对比 对话框内容 -->
     <el-dialog title="差异对比" :visible.sync="diffDialog" class="history" width="60%">
       <section class="box">
-        <span>【注】左侧为历史版本，右侧为当前版本</span>
+        <span @click="getValFn">【注】左侧为历史版本，右侧为当前版本</span>
         <div id="diff-view" />
       </section>
     </el-dialog>
@@ -62,6 +62,7 @@ import 'codemirror/mode/go/go.js'
 import 'codemirror/mode/php/php.js'
 import 'codemirror/mode/vue/vue.js'
 import 'codemirror/mode/jsx/jsx.js'
+import 'codemirror/mode/shell/shell.js'
 /*
   代码对比
 */
@@ -100,6 +101,7 @@ export default {
       codeMode: '', // 代码模式
       modeList: { // 模式列表
         python: 'text/x-python',
+        shell: 'text/x-sh',
         json: 'text/javascript',
         yaml: 'text/x-yaml',
         xml: 'application/xml',
@@ -204,7 +206,8 @@ export default {
           completeSingle: false
         }
       },
-      diffDialog: false // 对比弹窗
+      diffDialog: false, // 对比弹窗
+      mergeEditor: {} // 文本对比
     }
   },
   computed: {
@@ -300,7 +303,7 @@ export default {
       if (!(newVal && oldVal)) return
       const target = document.getElementById('diff-view')
       target.innerHTML = '' // 清空
-      CodeMirror.MergeView(target, {
+      this.mergeEditor = CodeMirror.MergeView(target, {
         value: oldVal, // 上次内容
         origLeft: null,
         orig: newVal, // 本次内容
@@ -314,6 +317,9 @@ export default {
         connect: 'align',
         readOnly: true // 只读 不可修改
       })
+    },
+    getValFn() {
+      console.log('xxxx', this.mergeEditor.edit.getValue())
     }
   }
 }

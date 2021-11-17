@@ -103,6 +103,12 @@ export const asyncRoutes = [
         component: () => import('@/views/components/linkage'),
         name: 'linkage',
         meta: { title: '层级联动选择器', icon: 'lock' }
+      },
+      {
+        path: 'table',
+        component: () => import('@/views/components/table'),
+        name: 'table',
+        meta: { title: '表格组件', icon: 'lock' }
       }
     ]
   },
