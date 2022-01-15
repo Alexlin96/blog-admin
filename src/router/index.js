@@ -109,6 +109,12 @@ export const asyncRoutes = [
         component: () => import('@/views/components/table'),
         name: 'table',
         meta: { title: '表格组件', icon: 'lock' }
+      },
+      {
+        path: 'web',
+        component: () => import('@/views/components/web'),
+        name: 'web',
+        meta: { title: '模板页面生成器', icon: 'lock' }
       }
     ]
   },
